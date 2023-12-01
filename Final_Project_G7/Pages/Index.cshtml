@@ -1,0 +1,145 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-FfS8aR5LUGAAgphWfuZ18tk8YYPLd7y5sR/08SueVX3pZ5XvApyI5N2tU7+89xS" crossorigin="anonymous">
+    <title>DaBase Solution - Employee Management System</title>
+    <style>
+        .card {
+            border: 1px solid #ddd; /* Add a border */
+            border-radius: 10px; /* Rounded corners */
+            transition: transform 0.3s ease; /* Add a smooth transition effect */
+        }
+
+            .card:hover {
+                transform: scale(1.05); /* Enlarge the card on hover */
+            }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #0e334f; /* Primary blue color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #154c79;
+            text-align: center;
+        }
+
+        section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            text-align: justify;
+        }
+        .img{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            width: 200px;
+            height:  200px;
+        }
+        h2 {
+            color: #154c79; /* Primary blue color for section headings */
+            border-bottom: 2px solid #154c79; /* Underline for section headings */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc; /* Bullet points for unordered lists */
+            margin-left: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a:hover {
+            color: #007bff; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <h1>Welcome to DataBase Solution</h1>
+    <section>
+        <h2>About Us</h2>
+
+        <p>DataBase Solution is a leading provider of innovative solutions in employee management. Our mission is to empower businesses to streamline their workforce processes and create a collaborative and productive work environment.</p>
+
+        <p>At DataBase Solution, we understand the importance of efficient employee management for the success of any organization. Our Employee Management System is designed to simplify the tasks of employees, managers, and administrators, making it easy to handle various aspects of workforce management.</p>
+
+    </section>
+    <section>
+        <h2>Our Team</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src= "~/images/Mitali.jpg" class=" img card-img-top" alt="Team Member 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Mitali Dadhich</h5>
+                        <p class="card-text">Project Manager</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="~/images/Chintan.jpg" class="img card-img-top" alt="Team Member 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Chintan Chauhan</h5>
+                        <p class="card-text">Data Analyst</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="~/images/Rutva.jpg" class="img card-img-top" alt="Team Member 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Rutva Patel</h5>
+                        <p class="card-text">Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        
+        <h2>Key Features:</h2>
+        <ul>
+            <li>Secure and user-friendly login for employees, managers, and administrators.</li>
+            <li>Efficient management of employee information and records.</li>
+            <li>Streamlined communication channels within the organization.</li>
+            <!-- Add more features as applicable to your system -->
+        </ul>
+
+        <p>Experience the benefits of a seamless employee management process with DataBase Solution. Join us in shaping the future of efficient workforce management.</p>
+    </section>
+
+    <!-- Include other sections of the website description here -->
+
+</body>
+</html>

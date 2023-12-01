@@ -1,0 +1,191 @@
+@page
+@model Final_Project_G7.Pages.Contacts.IndexModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Your page description" />
+    <meta name="author" content="Your Name" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-FfS8aR5LUGAAgphWfuZ18tk8YYPLd7y5sR/08SueVX3pZ5XvApyI5N2tU7+89xS" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333;
+        }
+
+        header {
+            background-color: #0e334f; /* Primary blue color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #154c79;
+        }
+        .table {
+            width: 110%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .table-head{
+            background-color: #F0F8FF;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        tr {
+            transition: background-color 0.3s;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #217dbb;
+        }
+
+        /* Add margin to the buttons for better spacing */
+        .action-buttons a {
+            margin-right: 10px;
+        }
+
+        .edit-icon, .details-icon, .delete-icon {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background-color: #217dbb;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <br />
+        <h1>Employee Management System</h1>
+
+        <p>
+            <a asp-page="Create" class="btn btn-primary">Create New</a>
+        </p>
+
+        <table class="table">
+            <thead class="table-head">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].State)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].Zip)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact[0].Status)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Contact)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Zip)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td class="action-buttons">
+                            @if ((await AuthorizationService.AuthorizeAsync(
+                           User, item,
+                           ContactOperations.Update)).Succeeded)
+                            {
+                                <a asp-page="./Edit" asp-route-id="@item.ContactId" class="edit-icon">
+                                    <i class="fas fa-edit">Edit</i>
+                                </a>
+                            }
+
+                            <a asp-page="./Details" asp-route-id="@item.ContactId" class="details-icon">
+                                <i class="fas fa-info-circle">Details</i>
+                            </a>
+
+                            @if ((await AuthorizationService.AuthorizeAsync(
+                           User, item,
+                           ContactOperations.Delete)).Succeeded)
+                            {
+                                <a asp-page="./Delete" asp-route-id="@item.ContactId" class="delete-icon">
+                                    <i class="fas fa-trash-alt">Delete</i>
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Final_Project_G7 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>
